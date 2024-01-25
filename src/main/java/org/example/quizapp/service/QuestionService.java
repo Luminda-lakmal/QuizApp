@@ -4,6 +4,7 @@ import org.example.quizapp.dao.QuestionDao;
 import org.example.quizapp.entities.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -19,5 +20,16 @@ public class QuestionService {
     public List<Question> getQuestionsByCategory(String category){
         return questionDao.findByCategory(category);
     }
-
+    public String addQuestion(Question question){
+        questionDao.save(question);
+        return "success";
+    }
+    public String updateQuestion(Question question){
+        questionDao.save(question);
+        return "success";
+    }
+    public String deleteQuestion(Integer id){
+        questionDao.deleteById(id);
+        return "Successfully deleted";
+    }
 }
