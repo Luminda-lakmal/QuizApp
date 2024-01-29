@@ -21,6 +21,7 @@ import java.util.Optional;
 public class QuizService {
     @Autowired
     QuizDao quizDao;
+    @Autowired
     QuestionDao questionDao;
     public ResponseEntity<String> createQuiz(String category, int numQ, String title){
         List<Question> questions = questionDao.findRandomQuestionsByCategory(category,numQ);
